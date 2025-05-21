@@ -1,0 +1,13 @@
+h
+e
+l
+l
+o
+Key.enter
+Key.shift
+Key.shift
+Key.ctrl
+b
+o
+b
+Key.esc

@@ -75,7 +75,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1747798869963</updated>
-      <workItem from="1747798871052" duration="1269000" />
+      <workItem from="1747798871052" duration="2520000" />
     </task>
     <task id="LOCAL-00001" summary="Started new keylogger project. Added code so that strokes are added to a log file">
       <option name="closed" value="true" />
@@ -104,6 +104,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Started new keylogger project. Added code so that strokes are added to a log file" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Keylogger2_0$logger.coverage" NAME="logger Coverage Results" MODIFIED="1747878766164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Keylogger2_0$logger.coverage" NAME="logger Coverage Results" MODIFIED="1747879790983" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc93b02e-6064-425c-bb59-b4d413700384" name="Changes" comment="Started new keylogger project. Added code so that strokes are added to a log file">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/logger.py" afterDir="false" />
-    </list>
+    <list default="true" id="dc93b02e-6064-425c-bb59-b4d413700384" name="Changes" comment="Started new keylogger project. Added code so that strokes are added to a log file" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,7 +71,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1747798869963</updated>
-      <workItem from="1747798871052" duration="5288000" />
+      <workItem from="1747798871052" duration="6110000" />
     </task>
     <task id="LOCAL-00001" summary="Started new keylogger project. Added code so that strokes are added to a log file">
       <option name="closed" value="true" />
@@ -103,6 +100,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Started new keylogger project. Added code so that strokes are added to a log file" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Keylogger2_0$logger.coverage" NAME="logger Coverage Results" MODIFIED="1748919967807" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Keylogger2_0$logger.coverage" NAME="logger Coverage Results" MODIFIED="1748920066509" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

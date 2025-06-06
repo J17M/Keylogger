@@ -16,7 +16,7 @@ Use only in controlled environments
 - Special keys are labeled (e.g, '[SPACE]', '[ENTER]')
 - Timestamps are included for every key press and clipboard change
 - Background thread to allow clipboard logging without interfering with main keylogger
-
+- Captures basic system info into 'sysinfo.txt'
 
 ## Future Add-Ons (Ideas)
 
@@ -30,4 +30,4 @@ Use only in controlled environments
 - Log keyboard layout used
 - Capture screenshots
 - Inject logger into another app (fake app) 
-
+- Add a requirements.txt to install necessary dependencies

